@@ -26,11 +26,15 @@ public class main {
             WebElement exit = driver.findElement(By.id("header_logout"));
             exit.click();
 
+	    driver.quit();
+
         }
 
         public static WebDriver initChromeDriver(){
-            System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/drivers/chromedriver.exe");
-            return new ChromeDriver();
+              System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/drivers/chromedriver.exe");
+      	      ChromeOptions options = new ChromeOptions();
+              options.addArguments("--start-maximized");
+	      return new ChromeDriver(options);
         }
 
         public static void  Sleep(){
